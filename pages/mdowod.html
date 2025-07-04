@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mDowód</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="mObywatel">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/mdowod.css">
+</head>
+<body>
+    <div class="header-container">
+        <div class="header">
+            <p id="back-button">< Wróć</p>
+            <h1>mDowód</h1>
+            <img src="../img/mdowod/znakzapytania.png" alt="Info" id="group">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="timer">Czas: 10:41:23 06.04.2025</div>
+
+        <div class="document-section">
+            <div class="document-images">
+                <img src="../img/mdowod/pan.png" alt="User Photo" class="user-photo">
+                <img src="../img/mdowod/flaga.gif" alt="Animated Flag" class="flag">
+                <div class="republic">
+                    <div class="eagle-container" id="eagle-container">
+                        <img src="../img/mdowod/herb.png" alt="Eagle" class="eagle" id="republic-icon">
+                    </div>
+                    <div class="text">Rzeczpospolita<br>Polska</div>
+                </div>
+            </div>
+            <div class="document-details">
+                <div class="info-card">
+                    <p><span class="label">MACIEJ</span> <span class="description">Imię (imiona)</span></p>
+                    <p><span class="label">MUSIAŁ</span> <span class="description">Nazwisko</span></p>
+                    <p><span class="label">POLSKIE</span> <span class="description">Obywatelstwo</span></p>
+                    <p><span class="label">08.08.2007</span> <span class="description">Data urodzenia</span></p>
+                    <p><span class="label">06010219472</span> <span class="description">Numer PESEL</span></p>
+                </div>
+            </div>
+            <div class="validity">
+                <div class="validity-icon">
+                    <img src="../img/mdowod/wazny.png" alt="Checkmark">
+                </div>
+                <div class="validity-text">Dokument ważny</div>
+            </div>
+        </div>
+
+        <div class="custom-button">
+            <img src="../img/mdowod/potwierdzdane.png" style="width: 30px; height: 30px; margin-right: 10px;">
+            <span style="flex-grow: 1; font-weight: 600; font-size: 14px;">Potwierdź swoje dane</span>
+            <span style="color: #626262;">></span>
+        </div>
+        <div class="custom-button">
+            <img src="../img/mdowod/danedokumentu.png" style="width: 30px; height: 30px; margin-right: 10px;">
+            <span style="flex-grow: 1; font-weight: 600; font-size: 14px;">Dane dokumentu</span>
+            <span style="color: #626262;">></span>
+        </div>
+        <div class="custom-button toggle-extra">
+            <span style="flex-grow: 1; font-weight: 600; font-size: 14px;">Twoje dodatkowe dane</span>
+            <span class="arrow">⌵</span>
+        </div>
+
+        <div id="extra-details" style="display: none; margin-top: 10px;">
+            <input type="file" id="photo-upload" accept="image/*" class="dane-input" onchange="updatePhoto()">
+            <input type="text" placeholder="Imię" class="dane-input" id="imie">
+            <input type="text" placeholder="Nazwisko" class="dane-input" id="nazwisko">
+            <input type="text" placeholder="Obywatelstwo" class="dane-input" id="obywatelstwo">
+            <input type="text" placeholder="Data urodzenia" class="dane-input" id="data-urodzenia">
+            <input type="text" placeholder="PESEL" class="dane-input" id="pesel">
+            <button class="update-button" onclick="updateDocumentData()">Aktualizuj dane</button>
+        </div>
+        <div class="update-section">
+            <div class="update-info">
+                <div class="update-labels">
+                    <p class="last-update-label">Ostatnia aktualizacja</p>
+                    <p class="last-update-date">01.01.2025</p>
+                </div>
+                <button class="update-btn">Aktualizuj</button>
+            </div>
+        </div>
+        
+        <div class="delete-section">
+            <img src="../img/mdowod/kosz.png" alt="Usuń dokument" class="delete-icon">
+            <span class="delete-text">Usuń dokument</span>
+        </div>
+        
+    </div>
+
+    <div class="nawigacja">
+        <div class="nawigacja-icon aktywna">
+            <img src="../img/footer/pulpit.png" alt="Pulpit">
+            <span>Pulpit</span>
+        </div>
+        <div class="nawigacja-icon">
+            <img src="../img/footer/Dokumenty.png" alt="Dokumenty">
+            <span>Dokumenty</span>
+        </div>
+        <div class="nawigacja-icon">
+            <img src="../img/footer/Usługi.png" alt="Usługi">
+            <span>Usługi</span>
+        </div>
+        <div class="nawigacja-icon">
+            <img src="../img/footer/kod QR.png" alt="Kod QR">
+            <span>Kod QR</span>
+        </div>
+        <div class="nawigacja-icon">
+            <img src="../img/footer/wiecej.png" alt="Więcej">
+            <span>Więcej</span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("back-button").addEventListener("click", function() {
+            window.location.href = "../pages/pulpit.html";
+        });
+
+        function updateTimer() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const year = now.getFullYear();
+            const formattedTime = `Czas: ${hours}:${minutes}:${seconds} ${day}.${month}.${year}`;
+            document.querySelector('.timer').textContent = formattedTime;
+        }
+        updateTimer();
+        setInterval(updateTimer, 1000);
+
+        document.querySelector('.toggle-extra').addEventListener('click', function() {
+            const extra = document.getElementById('extra-details');
+            extra.style.display = extra.style.display === 'none' ? 'block' : 'none';
+        });
+
+        function updateDocumentData() {
+            const imie = document.getElementById('imie').value;
+            const nazwisko = document.getElementById('nazwisko').value;
+            const obywatelstwo = document.getElementById('obywatelstwo').value;
+            const dataUrodzenia = document.getElementById('data-urodzenia').value;
+            const pesel = document.getElementById('pesel').value;
+
+            const labels = document.querySelectorAll('.info-card .label');
+            if (labels.length >= 5) {
+                labels[0].textContent = imie;
+                labels[1].textContent = nazwisko;
+                labels[2].textContent = obywatelstwo;
+                labels[3].textContent = dataUrodzenia;
+                labels[4].textContent = pesel;
+            }
+
+            const daneUzytkownika = { imie, nazwisko, obywatelstwo, dataUrodzenia, pesel };
+            localStorage.setItem("mdowod_dane", JSON.stringify(daneUzytkownika));
+        }
+
+        function updatePhoto() {
+            const fileInput = document.getElementById('photo-upload');
+            const userPhoto = document.querySelector('.user-photo');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    userPhoto.src = e.target.result;
+                    localStorage.setItem("mdowod_foto", e.target.result);
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem("mdowod_dane");
+            if (saved) {
+                const dane = JSON.parse(saved);
+                const labels = document.querySelectorAll('.info-card .label');
+                if (labels.length >= 5) {
+                    labels[0].textContent = dane.imie;
+                    labels[1].textContent = dane.nazwisko;
+                    labels[2].textContent = dane.obywatelstwo;
+                    labels[3].textContent = dane.dataUrodzenia;
+                    labels[4].textContent = dane.pesel;
+                }
+
+                const inputs = document.querySelectorAll('#extra-details .dane-input');
+                if (inputs.length >= 5) {
+                    inputs[0].value = dane.imie;
+                    inputs[1].value = dane.nazwisko;
+                    inputs[2].value = dane.obywatelstwo;
+                    inputs[3].value = dane.dataUrodzenia;
+                    inputs[4].value = dane.pesel;
+                }
+            }
+
+            const savedPhoto = localStorage.getItem("mdowod_foto");
+            if (savedPhoto) {
+                document.querySelector('.user-photo').src = savedPhoto;
+            }
+        });
+    </script>
+</body>
+</html>

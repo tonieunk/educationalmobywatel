@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaloguj się</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="mObywatel">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest2.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="container">
+            <img src="img/Herb_Polski.png" alt="Herb Polski" class="herb">
+            <div class="text">
+                <span class="mobywatel">mObywatel</span>
+                <span class="version">2.0</span>
+            </div>
+        </div>
+        <button class="login-btn" onclick="redirectToPanel()">Zaloguj się</button>
+        <img src="img/coikrpm.png" alt="coikrpm" class="coikrpm">
+    </div>
+
+    <script>
+        function redirectToPanel() {
+            window.location.replace("pages/pulpit.html");
+        }
+    </script>
+</body>
+</html>

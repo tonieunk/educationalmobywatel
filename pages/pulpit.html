@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulpit</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="mObywatel">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/pulpit.css">
+</head>
+<body>
+    <div class="header-container">
+        <div class="header">
+            <img src="../img/pulpit/miniherbik.png" alt="Back" id="back-arrow" onclick="goBack()">
+            <img src="../img/pulpit/notify.png" alt="Info" id="group">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dokumenty-header">
+            <h1>Dokumenty</h1>
+            <div class="button-group">
+                <button class="custom-button">Dodaj</button>
+                <button class="custom-button">Wszystkie</button>
+            </div>
+        </div>
+    
+        <div class="card-scroll">
+            <div class="card-md card-mdowod" onclick="redirectToPage('../pages/mdowod.html');">
+                <div class="card-content"></div>
+                <div class="card-title">mDowód</div>
+            </div>            
+            <div class="card-md card-mprawojazdy" onclick="redirectToPage('../pages/mprawojazdy.html');">
+                <div class="card-content"></div>
+                <div class="card-title">mPrawoJazdy</div>
+            </div> 
+        </div>
+    
+        <div class="dokumenty-header">
+            <h1>Usługi</h1>
+            <div class="button-group">
+                <button class="custom-button">Wszystkie</button>
+            </div>
+        </div>
+    
+        <div class="uslugi-card-scroll">
+            <div class="uslugi-card">
+                <div class="uslugi-kafel">
+                    <img src="../img/pulpit/podpiszdokument.png" alt="Podpisz dokument" class="uslugi-img">
+                </div>
+                <p class="uslugi-title">Podpisz</p>
+                <p class="uslugi-title">dokument</p>
+            </div>
+            <div class="uslugi-card">
+                <div class="uslugi-kafel">
+                    <img src="../img/pulpit/bezpieczniewsieci.png" alt="Bezpiecznie w sieci" class="uslugi-img">
+                </div>
+                <p class="uslugi-title">Bezpiecznie</p>
+                <p class="uslugi-title">w sieci</p>
+            </div>
+            <div class="uslugi-card">
+                <div class="uslugi-kafel">
+                    <img src="../img/pulpit/alertpowodziowy.png" alt="Alert powodziowy" class="uslugi-img">
+                </div>
+                <p class="uslugi-title">Alert</p>
+                <p class="uslugi-title">powodziowy</p>
+            </div>
+        </div>
+        <div class="uslugi-card-scroll">
+            <div class="uslugi-card">
+                <div class="uslugi-kafel">
+                    <img src="../img/pulpit/zastrzezpesel.png" alt="Podpisz dokument" class="uslugi-img">
+                </div>
+                <p class="uslugi-title">Zastrzeż Pesel</p>
+            </div>
+            <div class="uslugi-card">
+                <div class="uslugi-kafel">
+                    <img src="../img/pulpit/Firma.png" alt="Firma" class="uslugi-img">
+                </div>
+                <p class="uslugi-title">Firma</p>
+            </div>
+            <div class="uslugi-card">
+                <div class="uslugi-kafel">
+                    <img src="../img/pulpit/Punktykarne.png" alt="Punkty karne" class="uslugi-img">
+                </div>
+                <p class="uslugi-title">Punkty karne</p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="nawigacja">
+        <div class="nawigacja-icon aktywna">
+            <img src="../img/footer/pulpit.png" alt="Pulpit">
+            <span>Pulpit</span>
+        </div>
+        <div class="nawigacja-icon">
+            <img src="../img/footer/Dokumenty.png" alt="Dokumenty">
+            <span>Dokumenty</span>
+        </div>
+        <div class="nawigacja-icon">
+            <img src="../img/footer/Usługi.png" alt="Usługi">
+            <span>Usługi</span>
+        </div>
+        <div class="nawigacja-icon">
+            <img src="../img/footer/kod QR.png" alt="Kod QR">
+            <span>Kod QR</span>
+        </div>
+        <div class="nawigacja-icon">
+            <img src="../img/footer/wiecej.png" alt="Więcej">
+            <span>Więcej</span>
+        </div>
+    </div>
+
+    <script>
+        function redirectToPage(url) {
+            window.location.replace(url);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
